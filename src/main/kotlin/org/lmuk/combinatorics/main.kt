@@ -2,10 +2,6 @@ package org.lmuk.combinatorics
 
 import org.lmuk.checkExit
 
-private val fallbackItems by lazy {
-    List(10) { it }
-}
-
 private val tasks = mapOf<String, (items: List<Any>) -> Unit>(
     "permutation" to fun(items) = println("Permutations: ${items.permutation()}"),
     "variation" to fun(items) {
@@ -36,7 +32,7 @@ fun main() {
 }
 
 private fun parseUserInput(input: String?): List<Any> =
-    input?.split(",")?.map(String::trim) ?: fallbackItems
+    input!!.split(",").map(String::trim)
 
 private fun printHeader() {
     println("-".repeat(50))
